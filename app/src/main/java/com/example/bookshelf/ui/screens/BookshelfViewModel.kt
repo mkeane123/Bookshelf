@@ -4,6 +4,9 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.example.bookshelf.network.BookshelfApi
+import kotlinx.coroutines.launch
 
 /*
  * Different states the uiState can be in
@@ -24,6 +27,10 @@ class BookshelfViewModel(/*pass in repository here eventually*/) : ViewModel() {
 
     fun getBooks(){
         // call the API function to get the books from web
+        viewModelScope.launch {// launches a coroutine, so web request wont block main thread
+            val listResult = BookshelfApi.retrofitService.getBooks()//call the functionon the bookshelfApi singleton
+            bookshelfUiState = BookshelfUiState.Success(listResult)
+        }
     }
 
 

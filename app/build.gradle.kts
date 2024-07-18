@@ -76,6 +76,9 @@ dependencies {
     // coil
     implementation("io.coil-kt:coil-compose:2.4.0")
 
+// Retrofit with Scalar Converter
+    implementation("com.squareup.retrofit2:converter-scalars:2.9.0")
+
     testImplementation("org.testng:testng:6.9.6")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
     debugImplementation("androidx.compose.ui:ui-tooling")
