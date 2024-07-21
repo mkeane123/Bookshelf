@@ -30,11 +30,11 @@ fun BookshelfApp() {
         Surface(
             modifier = Modifier.fillMaxSize()
         ){
-            val bookshelfViewModel: BookshelfViewModel = viewModel()
+            val bookshelfViewModel: BookshelfViewModel = viewModel(factory = BookshelfViewModel.Factory)
 
             HomeScreen(
                 bookshelfUiState =bookshelfViewModel.bookshelfUiState ,
-                retryAction = bookshelfViewModel::getBooks,
+                retryAction = bookshelfViewModel::getAllBooks,
                 contentPaddingValues = it,
                 bookshelfViewModel = bookshelfViewModel
             )
